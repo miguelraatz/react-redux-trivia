@@ -8,3 +8,5 @@ export default class Game extends Component {
     );
   }
 }
+
+// tive que criar  este arquivo pra questão 5
