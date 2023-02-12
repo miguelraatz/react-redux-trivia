@@ -9,6 +9,7 @@ class Game extends Component {
   state = {
     index: 0,
     classButton: false,
+    secondsTimer: 30,
   };
 
   async componentDidMount() {
@@ -19,8 +20,21 @@ class Game extends Component {
     if (fetch.response_code === INVALID_TOKEN) {
       localStorage.removeItem('token');
       history.push('/');
+    } else {
+      this.timer();
     }
   }
+
+  timer = () => {
+    const MILLISECONDS = 1000;
+    const timerInterval = setInterval(() => {
+      const { secondsTimer } = this.state;
+      if (secondsTimer > 0) {
+        this.setState({ secondsTimer: secondsTimer - 1 });
+      }
+    }, MILLISECONDS);
+    return () => clearInterval(timerInterval);
+  };
 
   handleClick = () => {
     this.setState({ classButton: true });
@@ -28,7 +42,7 @@ class Game extends Component {
 
   render() {
     const { questions, answersShuffle } = this.props;
-    const { index, classButton } = this.state;
+    const { index, classButton, secondsTimer } = this.state;
     return (
       <>
         <Header />
@@ -41,8 +55,9 @@ class Game extends Component {
                 <button
                   key={ answer }
                   value={ answer }
+                  disabled={ secondsTimer === 0 }
                   onClick={ this.handleClick }
-                  className={ classButton && (questions[index]
+                  className={ (classButton || secondsTimer === 0) && (questions[index]
                     .correct_answer === answer
                     ? 'correct-answer' : 'wrong-answer') }
                   data-testid={ questions[index]
