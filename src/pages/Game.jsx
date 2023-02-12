@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { actionFetchQuestionsApi } from '../redux/actions';
+import '../game.css';
 
 class Game extends Component {
   state = {
     index: 0,
+    classButton: false,
   };
 
   async componentDidMount() {
@@ -20,9 +22,13 @@ class Game extends Component {
     }
   }
 
+  handleClick = () => {
+    this.setState({ classButton: true });
+  };
+
   render() {
     const { questions, answersShuffle } = this.props;
-    const { index } = this.state;
+    const { index, classButton } = this.state;
     return (
       <>
         <Header />
@@ -34,6 +40,11 @@ class Game extends Component {
               {answersShuffle[index].map((answer, i) => (
                 <button
                   key={ answer }
+                  value={ answer }
+                  onClick={ this.handleClick }
+                  className={ classButton && (questions[index]
+                    .correct_answer === answer
+                    ? 'correct-answer' : 'wrong-answer') }
                   data-testid={ questions[index]
                     .correct_answer === answer
                     ? 'correct-answer' : `wrong-answer-${i}` }

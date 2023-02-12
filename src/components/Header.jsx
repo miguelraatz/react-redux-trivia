@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
 import logo from '../trivia.png';
+import '../header.css';
 
 class Header extends Component {
   render() {
@@ -14,7 +15,7 @@ class Header extends Component {
     return (
       <div>
         <header>
-          <img src={ logo } alt="logo" />
+          <img src={ logo } alt="logo" className="logo-trivia" />
         </header>
         <main>
           <img
