@@ -10,7 +10,6 @@ class Header extends Component {
     const { user: { name, gravatarEmail, score } } = this.props;
 
     const EmailOfGravatar = md5(gravatarEmail).toString();
-    console.log(gravatarEmail);
 
     return (
       <div>
