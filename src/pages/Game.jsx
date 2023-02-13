@@ -82,7 +82,7 @@ class Game extends Component {
 
   render() {
     const { questions, answersShuffle } = this.props;
-    const { index, secondsTimer } = this.state;
+    const { index, secondsTimer, classButton } = this.state;
     return (
       <>
         <Header />
@@ -106,6 +106,15 @@ class Game extends Component {
                     {answer}
                   </button>
                 ))}
+                {(classButton || secondsTimer === 0) && (
+                  <button
+                    type="button"
+                    data-testid="btn-next"
+                  >
+                    Próxima pergunta
+                  </button>
+                )}
+
               </div>
             </div>
           </div>
