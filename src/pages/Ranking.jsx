@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 class Ranking extends React.Component {
   handleClick = () => {
@@ -11,13 +11,13 @@ class Ranking extends React.Component {
   render() {
     return (
       <div>
-        <h2 data-testid="ranking-title">Ranking</h2>
+        <h1 data-testid="ranking-title">Ranking</h1>
         <button
-          onClick={ this.handleClick }
           data-testid="btn-go-home"
+          type="button"
+          onClick={ this.handleClick }
         >
-          Inicio
-
+          Início
         </button>
       </div>
     );
@@ -25,7 +25,9 @@ class Ranking extends React.Component {
 }
 
 Ranking.propTypes = {
-  history: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect()(Ranking);
