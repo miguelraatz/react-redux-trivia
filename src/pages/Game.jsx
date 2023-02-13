@@ -80,6 +80,24 @@ class Game extends Component {
     } return '';
   };
 
+  clickNextButton = () => {
+    const { history } = this.props;
+    const { index } = this.state;
+    const QUESTION_MAX = 4;
+    if (index < QUESTION_MAX) {
+      this.setState({
+        index: index + 1,
+        secondsTimer: 30,
+        classButton: false,
+      });
+    } else {
+      this.setState({
+        index: 0,
+        classButton: false,
+      }, history.push('/feedback'));
+    }
+  };
+
   render() {
     const { questions, answersShuffle } = this.props;
     const { index, secondsTimer, classButton } = this.state;
@@ -110,6 +128,7 @@ class Game extends Component {
                   <button
                     type="button"
                     data-testid="btn-next"
+                    onClick={ this.clickNextButton }
                   >
                     Próxima pergunta
                   </button>
