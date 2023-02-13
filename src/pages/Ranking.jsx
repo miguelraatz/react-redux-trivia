@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
+
 class Ranking extends React.Component {
   handleClick = () => {
     const { history } = this.props;
