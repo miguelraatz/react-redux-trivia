@@ -1,11 +1,6 @@
-export const USER_PROFILE = 'USER_PROFILE';
-export const SAVE_INFO = 'SAVE_INFO';
 export const SAVE_QUESTIONS = 'SAVE_QUESTIONS';
-
-export const user = (payload) => ({
-  type: USER_PROFILE,
-  payload,
-});
+export const SAVE_SCORE = 'SAVE_SCORE';
+export const SAVE_INFO = 'SAVE_INFO';
 
 export const saveInfo = (payload) => ({
   type: SAVE_INFO,
@@ -23,3 +18,8 @@ export const actionFetchQuestionsApi = (token) => async (dispatch) => {
   dispatch(saveQuestions(response));
   return response;
 };
+
+export const saveScore = (payload) => ({
+  type: SAVE_SCORE,
+  payload,
+});

@@ -2,6 +2,7 @@ import { SAVE_QUESTIONS } from '../actions';
 
 const INITIAL_STATE = {
   questions: [],
+  answersShuffle: [],
 };
 
 function shuffle(array) {

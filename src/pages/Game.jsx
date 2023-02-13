@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import { actionFetchQuestionsApi } from '../redux/actions';
+import { actionFetchQuestionsApi, saveScore } from '../redux/actions';
 import '../game.css';
 
 class Game extends Component {
@@ -36,37 +36,77 @@ class Game extends Component {
     return () => clearInterval(timerInterval);
   };
 
-  handleClick = () => {
+  difficultyScore = () => {
+    const { index } = this.state;
+    const { questions } = this.props;
+    const EASY = 1;
+    const MEDIUM = 2;
+    const HARD = 3;
+    switch (questions[index].difficulty) {
+    case 'easy':
+      return EASY;
+    case 'medium':
+      return MEDIUM;
+    case 'hard':
+      return HARD;
+    default:
+      return 0;
+    }
+  };
+
+  handleClick = ({ target }) => {
     this.setState({ classButton: true });
+    const { questions, dispatch } = this.props;
+    const { index } = this.state;
+    const POINTS = 10;
+    if (target.value === questions[index].correct_answer) {
+      const { secondsTimer } = this.state;
+      const sum = POINTS + (secondsTimer * this.difficultyScore());
+      dispatch(saveScore(sum));
+      this.setState({ secondsTimer: 0 });
+    } else {
+      this.setState({ secondsTimer: 0 });
+    }
+  };
+
+  verificationClass = (answer) => {
+    const { questions } = this.props;
+    const { index, classButton, secondsTimer } = this.state;
+    if (classButton || secondsTimer === 0) {
+      if (questions[index].correct_answer === answer) {
+        return 'correct-answer';
+      }
+      return 'wrong-answer';
+    } return '';
   };
 
   render() {
     const { questions, answersShuffle } = this.props;
-    const { index, classButton, secondsTimer } = this.state;
+    const { index, secondsTimer } = this.state;
     return (
       <>
         <Header />
         {questions.length > 0 && (
           <div>
-            <p data-testid="question-category">{questions[index].category}</p>
-            <p data-testid="question-text">{questions[index].question}</p>
-            <div data-testid="answer-options">
-              {answersShuffle[index].map((answer, i) => (
-                <button
-                  key={ answer }
-                  value={ answer }
-                  disabled={ secondsTimer === 0 }
-                  onClick={ this.handleClick }
-                  className={ (classButton || secondsTimer === 0) && (questions[index]
-                    .correct_answer === answer
-                    ? 'correct-answer' : 'wrong-answer') }
-                  data-testid={ questions[index]
-                    .correct_answer === answer
-                    ? 'correct-answer' : `wrong-answer-${i}` }
-                >
-                  {answer}
-                </button>
-              ))}
+            <div>
+              <p data-testid="question-category">{questions[index].category}</p>
+              <p data-testid="question-text">{questions[index].question}</p>
+              <div data-testid="answer-options">
+                {answersShuffle[index].map((answer, i) => (
+                  <button
+                    key={ answer }
+                    value={ answer }
+                    disabled={ secondsTimer === 0 }
+                    onClick={ this.handleClick }
+                    className={ this.verificationClass(answer) }
+                    data-testid={ questions[index]
+                      .correct_answer === answer
+                      ? 'correct-answer' : `wrong-answer-${i}` }
+                  >
+                    {answer}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}

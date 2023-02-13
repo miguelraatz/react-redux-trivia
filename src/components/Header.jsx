@@ -8,10 +8,9 @@ import '../header.css';
 
 class Header extends Component {
   render() {
-    const { user: { name, gravatarEmail, score } } = this.props;
-
+    const { player: { name, gravatarEmail, score } } = this.props;
     const EmailOfGravatar = md5(gravatarEmail).toString();
-
+    const urlImage = `https://www.gravatar.com/avatar/${EmailOfGravatar}`;
     return (
       <div>
         <header>
@@ -19,7 +18,7 @@ class Header extends Component {
         </header>
         <main>
           <img
-            src={ `https://www.gravatar.com/avatar/${EmailOfGravatar}` }
+            src={ urlImage }
             alt="profile"
             data-testid="header-profile-picture"
           />
@@ -35,7 +34,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.shape({
+  player: PropTypes.shape({
     name: PropTypes.string,
     gravatarEmail: PropTypes.string,
     score: PropTypes.number,
@@ -43,7 +42,7 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user.player,
+  player: state.player,
 });
 
 export default connect(mapStateToProps)(Header);
