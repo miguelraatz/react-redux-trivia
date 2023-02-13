@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getTokenApi } from '../services/fetchApi';
-import { user } from '../redux/actions';
+import { saveInfo } from '../redux/actions';
 
 class Login extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class Login extends React.Component {
     const { name, email } = this.state;
     const token = await getTokenApi();
     localStorage.setItem('token', token);
-    dispatch(user({ name, email }));
+    dispatch(saveInfo({ name, email }));
     history.push('/game');
   };
 
