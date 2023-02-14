@@ -9,38 +9,39 @@ body {
 }
 
 #titulo-login {
-  display: flex;
   align-items: center;
+  background-image: linear-gradient(to bottom, #000000, hsl(0, 0%, 100%));
+  display: flex;
+  font-family: courier,arial,helvetica;
+  font-size: 35px;
   justify-content: center;
   padding: 20px;
-  background-image: linear-gradient(to bottom, #000000, hsl(0, 0%, 100%));
-  font-size: 35px;
-  font-family:courier,arial,helvetica;
 }
 
 #titulo {
-  font-weight: 900;
   color: rgb(33, 197, 33);
+  font-weight: 900;
 }
+
 @keyframes balanco {
   0% { transform: rotate(0); }
   40% { transform: rotate(10deg); }
   100% { transform: rotate(0); }
 }
 
-#logo-quiz{
+#logo-quiz {
+  animation: balanco 1s ease-in-out infinite;
   height: 100px;
   width: 100px;
-  animation: balanco 1s ease-in-out infinite;
 }
 
 
 form {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 50vh;
+  display: flex;
   flex-direction: column;
+  height: 50vh;
+  justify-content: center;
 }
 
 label {
@@ -48,9 +49,9 @@ label {
 }
 
 #btn-play {
+  border-radius: 10px;
   margin: 10px;
   width: 50px;
-  border-radius: 10px ;
 }
 
 #btn-play:hover {
@@ -58,9 +59,9 @@ label {
 }
 
 #btn-config {
+  border-radius: 10px;
   margin: 10px;
   width: 100px;
-  border-radius: 10px ;
 }
 
 #btn-config:hover {
