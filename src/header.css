@@ -1,3 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('/src/imagens/imagem-de-fundo-quiz.jpeg');
+  background-size: cover;
+}
+
+#titulo-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: linear-gradient(to bottom, #000000, hsl(0, 0%, 100%));
+  font-size: 35px;
+  font-family:courier,arial,helvetica;
+}
+
+#titulo {
+  font-weight: 900;
+  color: rgb(33, 197, 33);
+}
+@keyframes balanco {
+  0% { transform: rotate(0); }
+  40% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+#logo-quiz{
+  height: 100px;
+  width: 100px;
+  animation: balanco 1s ease-in-out infinite;
+}
+
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+#btn-play {
+  margin: 10px;
+  width: 50px;
+  border-radius: 10px ;
+}
+
+#btn-play:hover {
+  background-color: yellow;
+}
+
+#btn-config {
+  margin: 10px;
+  width: 100px;
+  border-radius: 10px ;
+}
+
+#btn-config:hover {
+  background-color: rgb(122, 122, 189);
+}
+
+input {
+  border-radius: 10px ;
+  width: 300px;
+}
+
 .logo-trivia {
   height: 100px;
   width: 100px;

@@ -46,48 +46,59 @@ class Login extends React.Component {
   render() {
     const { name, email, isDisabled } = this.state;
     return (
-      <form>
-        <label htmlFor="input-name">
-          Nome
-          <input
-            type="text"
-            className="input-name"
-            data-testid="input-player-name"
-            onChange={ this.handleChange }
-            name="name"
-            value={ name }
-          />
-        </label>
-
-        <label htmlFor="input-email">
-          Email
-          <input
-            type="text"
-            className="input-email"
-            data-testid="input-gravatar-email"
-            name="email"
-            value={ email }
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <button
-          data-testid="btn-play"
-          disabled={ isDisabled }
-          type="button"
-          onClick={ this.handleClick }
+      <>
+        <header
+          id="titulo-login"
         >
-          Play
+          <p id="titulo">Veja quantas você acerta!</p>
+          <img src="https://www.ifsudestemg.edu.br/noticias/muriae/2019/06/campus-muriae-participa-do-projeto-biblioteca-ativa/quiz3644414_960_720.png" alt="logo-quiz" id="logo-quiz" />
 
-        </button>
-        <button
-          data-testid="btn-settings"
-          type="button"
-          onClick={ this.clickSettings }
-        >
-          Configurações
-        </button>
-      </form>
+        </header>
+        <form>
+          <label htmlFor="input-name">
+            Nome
+            <input
+              type="text"
+              className="input-name"
+              data-testid="input-player-name"
+              onChange={ this.handleChange }
+              name="name"
+              value={ name }
+            />
+          </label>
+
+          <label htmlFor="input-email">
+            Email
+            <input
+              type="text"
+              className="input-email"
+              data-testid="input-gravatar-email"
+              name="email"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+          </label>
+
+          <button
+            id="btn-play"
+            data-testid="btn-play"
+            disabled={ isDisabled }
+            type="button"
+            onClick={ this.handleClick }
+          >
+            Play
+
+          </button>
+          <button
+            id="btn-config"
+            data-testid="btn-settings"
+            type="button"
+            onClick={ this.clickSettings }
+          >
+            Configurações
+          </button>
+        </form>
+      </>
     );
   }
 }
