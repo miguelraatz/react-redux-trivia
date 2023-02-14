@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getTokenApi } from '../services/fetchApi';
 import { saveInfo } from '../redux/actions';
+import '../login.css';
 
 class Login extends React.Component {
   state = {
@@ -48,10 +49,10 @@ class Login extends React.Component {
     return (
       <>
         <header
-          id="titulo-login"
+          className="titulo-login"
         >
-          <p id="titulo">Veja quantas você acerta!</p>
-          <img src="https://www.ifsudestemg.edu.br/noticias/muriae/2019/06/campus-muriae-participa-do-projeto-biblioteca-ativa/quiz3644414_960_720.png" alt="logo-quiz" id="logo-quiz" />
+          <p className="titulo">Veja quantas você acerta!</p>
+          <img src="https://www.ifsudestemg.edu.br/noticias/muriae/2019/06/campus-muriae-participa-do-projeto-biblioteca-ativa/quiz3644414_960_720.png" alt="logo-quiz" className="logo-quiz" />
 
         </header>
         <form>
@@ -80,7 +81,7 @@ class Login extends React.Component {
           </label>
 
           <button
-            id="btn-play"
+            className="btn-play"
             data-testid="btn-play"
             disabled={ isDisabled }
             type="button"
@@ -90,7 +91,7 @@ class Login extends React.Component {
 
           </button>
           <button
-            id="btn-config"
+            className="btn-config"
             data-testid="btn-settings"
             type="button"
             onClick={ this.clickSettings }
