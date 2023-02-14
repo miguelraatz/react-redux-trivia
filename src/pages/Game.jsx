@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -107,8 +108,14 @@ class Game extends Component {
         {questions.length > 0 && (
           <div>
             <div>
-              <p data-testid="question-category">{questions[index].category}</p>
-              <p data-testid="question-text">{questions[index].question}</p>
+              <p
+                dangerouslySetInnerHTML={ { __html: questions[index].category } }
+                data-testid="question-category"
+              />
+              <p
+                dangerouslySetInnerHTML={ { __html: questions[index].question } }
+                data-testid="question-text"
+              />
               <div data-testid="answer-options">
                 {answersShuffle[index].map((answer, i) => (
                   <button
