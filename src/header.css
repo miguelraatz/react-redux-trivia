@@ -10,9 +10,8 @@ body {
 
 #titulo-login {
   align-items: center;
-  background-image: linear-gradient(to bottom, #000000, hsl(0, 0%, 100%));
+  background-image: linear-gradient(to bottom, black hsl(white));
   display: flex;
-  font-family: courier,arial,helvetica;
   font-size: 35px;
   justify-content: center;
   padding: 20px;
@@ -24,9 +23,15 @@ body {
 }
 
 @keyframes balanco {
-  0% { transform: rotate(0); }
-  40% { transform: rotate(10deg); }
-  100% { transform: rotate(0); }
+  0% {
+  transform: rotate(0);
+  }
+  40% {
+  transform: rotate(10deg);
+  }
+  100% {
+  transform: rotate(0);
+  }
 }
 
 #logo-quiz {
@@ -69,7 +74,7 @@ label {
 }
 
 input {
-  border-radius: 10px ;
+  border-radius: 10px;
   width: 300px;
 }
 
