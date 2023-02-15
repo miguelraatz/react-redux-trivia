@@ -23,15 +23,15 @@ class Feedback extends Component {
         <Header />
         <main className="container-feedback">
           <p className="message" data-testid="feedback-text">
-            {assertions < minNumberOfAnswers ? 'Podia ser melhor...'
-              : 'Muito Bem!'}
+            {assertions < minNumberOfAnswers ? 'Could be better...'
+              : 'Well Done!'}
           </p>
 
           <p className="score-total" data-testid="feedback-total-score">
-            {`Um total de ${score} pontos`}
+            {score}
           </p>
           <p className="assertions" data-testid="feedback-total-question">
-            {`Você acertou ${assertions} questões!`}
+            { assertions }
           </p>
         </main>
         <div className="btn-container">

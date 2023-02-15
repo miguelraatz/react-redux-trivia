@@ -29,8 +29,6 @@ class Header extends Component {
           <div className="score-container">
             <img className="score-star" src={ Vector } alt="estrela-score" />
             <p className="score" data-testid="header-score">
-              Pontos:
-              {' '}
               { score }
             </p>
           </div>
