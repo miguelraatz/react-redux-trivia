@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { actionFetchQuestionsApi, saveScore } from '../redux/actions';
-import '../game.css';
+import '../Game.css';
+import logoTrivia from '../imagens/logotrivia.png';
 
 class Game extends Component {
   state = {
@@ -106,42 +107,46 @@ class Game extends Component {
       <>
         <Header />
         {questions.length > 0 && (
-          <div>
-            <div>
+          <div className="container">
+            <div className="questions-container">
               <p
                 dangerouslySetInnerHTML={ { __html: questions[index].category } }
                 data-testid="question-category"
+                className="category"
               />
               <p
                 dangerouslySetInnerHTML={ { __html: questions[index].question } }
                 data-testid="question-text"
+                className="question"
               />
-              <div data-testid="answer-options">
-                {answersShuffle[index].map((answer, i) => (
-                  <button
-                    key={ answer }
-                    value={ answer }
-                    disabled={ secondsTimer === 0 }
-                    onClick={ this.handleClick }
-                    className={ this.verificationClass(answer) }
-                    data-testid={ questions[index]
-                      .correct_answer === answer
-                      ? 'correct-answer' : `wrong-answer-${i}` }
-                  >
-                    {answer}
-                  </button>
-                ))}
-                {(classButton || secondsTimer === 0) && (
-                  <button
-                    type="button"
-                    data-testid="btn-next"
-                    onClick={ this.clickNextButton }
-                  >
-                    Próxima pergunta
-                  </button>
-                )}
-
-              </div>
+              <p className="timer">{`Tempo: ${secondsTimer}`}</p>
+            </div>
+            <div className="answers-container" data-testid="answer-options">
+              <img className="logo-trivia2" alt="logo-trivia" src={ logoTrivia } />
+              {answersShuffle[index].map((answer, i) => (
+                <button
+                  key={ answer }
+                  value={ answer }
+                  disabled={ secondsTimer === 0 }
+                  onClick={ this.handleClick }
+                  className={ this.verificationClass(answer) }
+                  data-testid={ questions[index]
+                    .correct_answer === answer
+                    ? 'correct-answer' : `wrong-answer-${i}` }
+                >
+                  {answer}
+                </button>
+              ))}
+              {(classButton || secondsTimer === 0) && (
+                <button
+                  type="button"
+                  className="next-button"
+                  data-testid="btn-next"
+                  onClick={ this.clickNextButton }
+                >
+                  Próxima pergunta
+                </button>
+              )}
             </div>
           </div>
         )}

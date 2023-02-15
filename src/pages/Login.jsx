@@ -3,7 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getTokenApi } from '../services/fetchApi';
 import { saveInfo } from '../redux/actions';
-import '../login.css';
+import '../Login.css';
+import logoTrivia from '../imagens/logotrivia.png';
+import iconeTrybe from '../imagens/íconetrybe.png';
 
 class Login extends React.Component {
   state = {
@@ -48,17 +50,14 @@ class Login extends React.Component {
     const { name, email, isDisabled } = this.state;
     return (
       <>
-        <header
-          className="titulo-login"
-        >
-          <p className="titulo">Veja quantas você acerta!</p>
-          <img src="https://www.ifsudestemg.edu.br/noticias/muriae/2019/06/campus-muriae-participa-do-projeto-biblioteca-ativa/quiz3644414_960_720.png" alt="logo-quiz" className="logo-quiz" />
-
+        <header>
+          <img src={ logoTrivia } alt="logo-quiz" className="logo-quiz" />
         </header>
+
         <form>
           <label htmlFor="input-name">
-            Nome
             <input
+              placeholder="Digite seu nome aqui"
               type="text"
               className="input-name"
               data-testid="input-player-name"
@@ -69,8 +68,8 @@ class Login extends React.Component {
           </label>
 
           <label htmlFor="input-email">
-            Email
             <input
+              placeholder="Digite seu email aqui"
               type="text"
               className="input-email"
               data-testid="input-gravatar-email"
@@ -87,8 +86,7 @@ class Login extends React.Component {
             type="button"
             onClick={ this.handleClick }
           >
-            Play
-
+            Jogar
           </button>
           <button
             className="btn-config"
@@ -99,6 +97,9 @@ class Login extends React.Component {
             Configurações
           </button>
         </form>
+        <footer>
+          <img src={ iconeTrybe } alt="icone trybe" className="icone-trybe" />
+        </footer>
       </>
     );
   }

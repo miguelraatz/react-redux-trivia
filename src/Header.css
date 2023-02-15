@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-trivia {
+  height: 30px;
+  width: 80px;
+}
+
+.header-container {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  min-width: 500px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.user-image {
+  border-radius: 20px;
+  margin-right: 10px;
+  width: 30px;
+}
+
+.user-container {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+}
+
+.score-container {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+}
+
+.score-star {
+  margin-right: 10px;
+}
+
+main {
+  margin-right: 30px;
+}
+
+@media screen and ( min-width : 500px ) {
+
+  .header-container {
+    align-items: center;
+    display: flex;
+    height: 110px;
+    min-width: 1370px;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-container {
+    margin-right: 200px;
+  }
+
+  .score-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+  }
+
+  .logo-trivia {
+    height: 80px;
+    width: 200px;
+  }
+
+  .user-image {
+    width: 50px;
+  }
+
+  .player-name {
+    font-size: 20px;
+  }
+
+  .score-star {
+    width: 50px;
+  }
+
+  .score {
+    font-size: 20px;
+  }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
+import '../Feedback.css';
 
 class Feedback extends Component {
   playAgain = () => {
@@ -20,21 +21,24 @@ class Feedback extends Component {
     return (
       <>
         <Header />
-        <main>
-          <p data-testid="feedback-text">
-            {assertions < minNumberOfAnswers ? 'Could be better...'
-              : 'Well Done!'}
+        <main className="container-feedback">
+          <p className="message" data-testid="feedback-text">
+            {assertions < minNumberOfAnswers ? 'Podia ser melhor...'
+              : 'Muito Bem!'}
           </p>
 
-          <p data-testid="feedback-total-score">
-            {score}
+          <p className="score-total" data-testid="feedback-total-score">
+            {`Um total de ${score} pontos`}
           </p>
-          <p data-testid="feedback-total-question">
-            {assertions}
+          <p className="assertions" data-testid="feedback-total-question">
+            {`Você acertou ${assertions} questões!`}
           </p>
+        </main>
+        <div className="btn-container">
           <button
             onClick={ this.playAgain }
             data-testid="btn-play-again"
+            className="play-again"
             type="button"
           >
             Play Again
@@ -42,11 +46,12 @@ class Feedback extends Component {
           <button
             onClick={ this.yourRank }
             data-testid="btn-ranking"
+            className="ranking"
             type="button"
           >
             Ranking
           </button>
-        </main>
+        </div>
       </>
     );
   }
