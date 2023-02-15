@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import '../Ranking.css';
 
 class Ranking extends React.Component {
   handleClick = () => {
@@ -10,11 +11,12 @@ class Ranking extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 data-testid="ranking-title">Ranking</h1>
+      <div className="container-ranking">
+        <h1 className="text-ranking" data-testid="ranking-title">Ranking</h1>
         <button
           data-testid="btn-go-home"
           type="button"
+          className="btn-home"
           onClick={ this.handleClick }
         >
           Início

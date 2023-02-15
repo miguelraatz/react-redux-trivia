@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
 import logo from '../trivia.png';
-import '../header.css';
+import '../Header.css';
+import Vector from '../imagens/Vector.png';
 
 class Header extends Component {
   render() {
@@ -11,21 +12,26 @@ class Header extends Component {
     const EmailOfGravatar = md5(gravatarEmail).toString();
     const urlImage = `https://www.gravatar.com/avatar/${EmailOfGravatar}`;
     return (
-      <div>
+      <div className="header-container">
         <header>
           <img src={ logo } alt="logo" className="logo-trivia" />
         </header>
         <main>
-          <img
-            src={ urlImage }
-            alt="profile"
-            data-testid="header-profile-picture"
-          />
-          <p data-testid="header-player-name">{ name }</p>
-          <p data-testid="header-score">
-            { score }
-            {' '}
-          </p>
+          <div className="user-container">
+            <img
+              src={ urlImage }
+              alt="profile"
+              data-testid="header-profile-picture"
+              className="user-image"
+            />
+            <p className="player-name" data-testid="header-player-name">{ name }</p>
+          </div>
+          <div className="score-container">
+            <img className="score-star" src={ Vector } alt="estrela-score" />
+            <p className="score" data-testid="header-score">
+              { score }
+            </p>
+          </div>
         </main>
       </div>
     );

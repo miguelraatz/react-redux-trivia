@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-image: url('/src/imagens/background-image.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.titulo-login {
+  align-items: center;
+  background-image: linear-gradient(to bottom, black hsl(white));
+  display: flex;
+  font-size: 35px;
+  justify-content: center;
+}
+
+@keyframes balanco {
+
+  0% { transform: rotate(0);}
+
+  40% { transform: rotate(10deg); }
+
+  100% { transform: rotate(0); }
+}
+
+.logo-quiz {
+  animation: balanco 1s ease-in-out infinite;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  width: 100px;
+}
+
+form {
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  justify-content: center;
+  width: 300px;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+.btn-play {
+  background-color: rgb(122, 122, 189);
+  border-radius: 10px;
+  font-size: 12px;
+  height: 20px;
+  margin: 10px;
+  width: 200px;
+}
+
+.btn-play:hover {
+  background-color: orange;
+}
+
+.btn-config {
+  background-color: rgb(122, 122, 189);
+  border-radius: 10px;
+  font-size: 12px;
+  height: 20px;
+  margin: 10px;
+  width: 200px;
+}
+
+.btn-config:hover {
+  background-color: orange;
+}
+
+input {
+  border-color: rgb(122, 122, 189);
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  height: 20px;
+  text-align: center;
+  width: 200px;
+}
+
+input::placeholder {
+  font-size: 12px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.icone-trybe {
+  margin: 50px 20px;
+  width: 40px;
+}
+
+@media screen and ( min-width : 500px ) {
+
+  form {
+    height: 50vh;
+    width: 500px;
+  }
+
+  .logo-quiz {
+    width: 200px;
+  }
+
+  body {
+    height: 130vh;
+  }
+
+  input {
+    font-size: 16px;
+    height: 40px;
+    width: 400px;
+  }
+
+  .btn-play {
+    font-size: 16px;
+    height: 40px;
+    width: 400px;
+  }
+
+  .btn-config {
+    font-size: 16px;
+    height: 40px;
+    width: 400px;
+  }
+
+}

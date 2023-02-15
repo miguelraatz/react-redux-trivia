@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container-ranking {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-ranking {
+  color: white;
+  margin-top: 100px;
+}
+
+.btn-home {
+  background-color: rgb(122, 122, 189);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+}
