@@ -71,7 +71,7 @@ Foi implementado um jogo de perguntas e respostas baseado no jogo Trivia (tipo u
    * `npm install`
 
 3.  Inicialize o projeto
-    * Utilize o comando `npm start` dentro da pasta `Trybe-project-trivia-react-redux` para rodar o projeto em sua máquina.
+    * Utilize o comando `npm start` dentro da pasta `react-redux-trivia` para rodar o projeto em sua máquina.
 
 ---
 
