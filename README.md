@@ -63,9 +63,9 @@ Foi implementado um jogo de perguntas e respostas baseado no jogo Trivia (tipo u
 ## ANTES DE INICIALIZAR A APLICAÇÃO:
 
 1. Clone o repositório
-  * `git clone git@github.com:THIAGOMARTINS367/Trybe-project-trivia-react-redux.git`
+  * `git clone git@github.com:miguelraatz/react-redux-trivia.git`
   * Entre na pasta do repositório na sua máquina:
-    * `Trybe-project-trivia-react-redux`
+    * `react-redux-trivia`
 
 2. Instale as dependências
    * `npm install`
