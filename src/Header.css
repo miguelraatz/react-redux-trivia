@@ -29,14 +29,12 @@
 .user-container {
   align-items: center;
   display: flex;
-  justify-content: start;
   margin: 5px;
 }
 
 .score-container {
   align-items: center;
   display: flex;
-  justify-content: start;
   margin: 5px;
 }
 
