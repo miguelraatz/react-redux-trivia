@@ -19,7 +19,6 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 - [API de Trivia](#api-de-trivia)
 - [Gravatar](#gravatar)
 - [Linter](#linter)
-- [Demonstração do Projeto](#desmontração-de-uso)
 
 ---
 
